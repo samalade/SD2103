@@ -1,4 +1,7 @@
-﻿@model Musportz.Models.BlogPost
+﻿@using Microsoft.AspNetCore.Identity
+
+@model Musportz.Models.BlogPost
+@inject UserManager<IdentityUser> UserManager
 
 @{
     ViewData["Title"] = "Create";
@@ -14,7 +17,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="UserProfileId" class="control-label"></label>
-                <select asp-for="UserProfileId" class ="form-control" asp-items="ViewBag.UserProfileId"></select>
+                <select asp-for="UserProfileId" class="form-control" asp-items="ViewBag.UserProfileId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
@@ -28,12 +31,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" height="500"/>
+                <input asp-for="Content" class="form-control" height="500" />
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId" class="control-label"></label>
-                <select asp-for="CategoryId" class ="form-control" asp-items="ViewBag.CategoryId"></select>
+                <select asp-for="CategoryId" class="form-control" asp-items="ViewBag.CategoryId"></select>
             </div>
             <div class="form-group">
                 <label asp-for="ImagePath" class="control-label"></label>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ACT-Student\\source\\repos\\samalade\\SD2103\\Musportz\\Musportz\\Musportz.csproj": {}
+    "C:\\Users\\ACT-Student\\Source\\Repos\\samalade\\SD2103\\Musportz\\Musportz\\Musportz.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ACT-Student\\source\\repos\\samalade\\SD2103\\Musportz\\Musportz\\Musportz.csproj": {
+    "C:\\Users\\ACT-Student\\Source\\Repos\\samalade\\SD2103\\Musportz\\Musportz\\Musportz.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ACT-Student\\source\\repos\\samalade\\SD2103\\Musportz\\Musportz\\Musportz.csproj",
+        "projectUniqueName": "C:\\Users\\ACT-Student\\Source\\Repos\\samalade\\SD2103\\Musportz\\Musportz\\Musportz.csproj",
         "projectName": "Musportz",
-        "projectPath": "C:\\Users\\ACT-Student\\source\\repos\\samalade\\SD2103\\Musportz\\Musportz\\Musportz.csproj",
+        "projectPath": "C:\\Users\\ACT-Student\\Source\\Repos\\samalade\\SD2103\\Musportz\\Musportz\\Musportz.csproj",
         "packagesPath": "C:\\Users\\ACT-Student\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ACT-Student\\source\\repos\\samalade\\SD2103\\Musportz\\Musportz\\obj\\",
+        "outputPath": "C:\\Users\\ACT-Student\\Source\\Repos\\samalade\\SD2103\\Musportz\\Musportz\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACT-Student\\AppData\\Roaming\\NuGet\\NuGet.Config",
