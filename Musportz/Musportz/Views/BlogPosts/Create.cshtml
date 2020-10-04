@@ -1,7 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Identity
 
 @model Musportz.Models.BlogPost
-@inject UserManager<IdentityUser> UserManager
+@inject Microsoft.AspNetCore.Identity.UserManager<IdentityUser> userManager
+
+
 
 @{
     ViewData["Title"] = "Create";
@@ -9,16 +11,13 @@
 
 <h2>Blog</h2>
 
-<h4>Create a blog</h4>
+<h4>Create Blog</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="Create" enctype="multipart/form-data">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="UserProfileId" class="control-label"></label>
-                <select asp-for="UserProfileId" class="form-control" asp-items="ViewBag.UserProfileId"></select>
-            </div>
+
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
@@ -31,7 +30,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Content" class="control-label"></label>
-                <input asp-for="Content" class="form-control" height="500" />
+                <textarea asp-for="Content" class="form-control" typeof="textarea" rows="5"></textarea>
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -43,14 +42,25 @@
                 <input asp-for="ImagePath" class="form-control" />
                 <span asp-validation-for="ImagePath" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create blog" class="btn btn-default" />
+            <div>
+                
+                <label for="Photo"></label>
+                <input id="FilePhoto" type="file" name="FilePhoto" value="Upload Blog Picture" />
             </div>
+            <div class="form-group">
+                <label asp-for="UserProfileId" class="hidden"></label>
+                <input asp-for="UserProfileId" class="hidden" value="@ViewBag.UserProfileId" />
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Post Blog" class="btn btn-default" />
+            </div>
+
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="BlogPosts" asp-action="userBlogPost">View your Blogs</a> |
+    <a asp-controller="UserProfiles" asp-action="Profile" asp-route-id="@Model.Id">View Profile</a> |
 </div>
 

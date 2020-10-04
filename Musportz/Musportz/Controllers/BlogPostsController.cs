@@ -36,7 +36,42 @@ namespace Musportz.Controllers
             return View(await musportzContext.ToListAsync());
         }
 
+        public async Task<IActionResult> Browse(int? id)
+        {
+            var musportzContext = _context.BlogPost.Where(b => b.UserProfileId == id).Include(b => b.Category).Include(b => b.UserProfile);
+            return View(await _context.BlogPost.ToListAsync());
+        }
+
+        public async Task<IActionResult> BlogView(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var blogPost = await _context.BlogPost
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (blogPost == null)
+            {
+                return NotFound();
+            }
+
+            return View(blogPost);
+        }
+
+        
+
+
+
+        [Authorize]
+        public async Task<IActionResult> userBlogPost(int? id)
+        {
+            var musportzContext = _context.BlogPost.Where(b => b.UserProfileId == id).Include(b => b.Category).Include(b => b.UserProfile);
+            return View(await musportzContext.ToListAsync());
+        }
+
         // GET: BlogPosts/Details/5
+
         
         public async Task<IActionResult> Details(int? id)
         {
@@ -59,10 +94,13 @@ namespace Musportz.Controllers
 
         // GET: BlogPosts/Create
         [Authorize]
-        public IActionResult Create()
+        public IActionResult Create(int id)
         {
+            string userID = _userManager.GetUserId(User);
+            UserProfile profile = _context.UserProfile.FirstOrDefault(p => p.UserAccountId == userID);
             ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryName");
-            ViewData["UserProfileId"] = new SelectList(_context.UserProfile, "Id", "FirstName");
+            //ViewData["UserProfileId"] = new SelectList(_context.UserProfile, "Id", "FirstName");
+            ViewBag.UserProfileId = profile.Id;
             return View();
         }
 
@@ -72,8 +110,20 @@ namespace Musportz.Controllers
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,UserProfileId,Title,CreatedAt,Content,CategoryId,ImagePath")] BlogPost blogPost)
+        public async Task<IActionResult> Create([Bind("Id,UserProfileId,Title,CreatedAt,Content,CategoryId,ImagePath")] BlogPost blogPost, IFormFile FilePhoto)
         {
+            if (FilePhoto.Length > 0)
+            {
+
+                string photoPath = _webroot.WebRootPath + "\\blogPhotos\\";
+                var fileName = Path.GetFileName(FilePhoto.FileName);
+
+                using (var stream = System.IO.File.Create(photoPath + fileName))
+                {
+                    await FilePhoto.CopyToAsync(stream);
+                    blogPost.ImagePath = fileName;
+                }
+            }
             if (ModelState.IsValid)
             {
                 _context.Add(blogPost);
@@ -81,12 +131,13 @@ namespace Musportz.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["CategoryId"] = new SelectList(_context.Category, "CategoryId", "CategoryName", blogPost.CategoryId);
-            ViewData["UserProfileId"] = new SelectList(_context.UserProfile, "Id", "FirstName", blogPost.UserProfileId);
+            //ViewData["UserProfileId"] = new SelectList(_context.UserProfile, "Id", "FirstName", blogPost.UserProfileId);
             return View(blogPost);
         }
 
         // GET: BlogPosts/Edit/5
-        
+
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -108,7 +159,7 @@ namespace Musportz.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
-  
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,UserProfileId,Title,CreatedAt,Content,CategoryId,ImagePath")] BlogPost blogPost)
         {
@@ -143,7 +194,7 @@ namespace Musportz.Controllers
         }
 
         // GET: BlogPosts/Delete/5
-       
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -165,6 +216,7 @@ namespace Musportz.Controllers
 
         // POST: BlogPosts/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {

@@ -3,6 +3,8 @@ for details on configuring this project to bundle and minify static web assets. 
 body {
     padding-top: 50px;
     padding-bottom: 20px;
+    border: 3px solid black;
+    border-style: inset
 }
 
 /* Wrapping element */
@@ -10,12 +12,76 @@ body {
 .body-content {
     padding-left: 15px;
     padding-right: 15px;
+    
 }
+
+
+
+.card-body {
+    border-style: outset
+}
+
+
+
+
+
+.button {
+    background-color: black;
+    color: yellow;
+    border: 5px solid white;
+    font-size: 25px;
+    border-style: dashed;
+    border-color: black
+}
+
+
+
+
+footer a{
+    background-color: yellow;
+    padding: 0px;
+    text-align: center;
+    color: black;
+}
+
+footer a:hover{
+    background-color:white
+}
+
+
+
+
+
+
+
+.navbar{
+    background-color:black;
+    height:50px;
+    padding:5px;
+    width:100%; 
+    
+        
+
+}
+
+
+
+
+
+.navbar a:hover {
+    background-color: yellow;
+    height: 50px;
+    padding: 5px;
+    width: 100%;
+}
+
+
 
 /* Carousel */
 .carousel-caption p {
     font-size: 20px;
     line-height: 1.4;
+    color:black
 }
 
 /* Make .svg files in the carousel display properly in older browsers */
@@ -33,5 +99,7 @@ body {
     /* Hide captions */
     .carousel-caption {
         display: none;
+        
+        
     }
 }

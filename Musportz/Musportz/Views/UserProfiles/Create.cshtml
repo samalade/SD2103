@@ -50,6 +50,7 @@
                 <span asp-validation-for="RegisteredAt" class="text-danger"></span>
             </div>
             <div>
+                <p>Upload Profile Picture</p>
                 <label for="Photo"></label>
                 <input id="FilePhoto" type="file" name="FilePhoto" />
             </div>
@@ -61,7 +62,8 @@
 </div>
 
 <div>
-    <a asp-action="ProfileInfo">Back to List</a>
+    
+    <a asp-controller="RegisterAccount" asp-action="SignUp" role="button" class="btn btn-success">Go Back</a> |
 </div>
 
 @section Scripts {

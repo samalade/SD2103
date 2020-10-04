@@ -7,7 +7,7 @@
 <h2>Musportz</h2>
 
 <div>
-    <h4>ProfileInfo</h4>
+    <h4>Profile Page</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -50,7 +50,7 @@
             @Html.DisplayNameFor(model => model.PhotoPath)
         </dt>
         <dd>
-            @Html.DisplayFor(model => model.PhotoPath)
+            <img src="\userPhotos\@Html.DisplayFor(model => model.PhotoPath)" width="200" height="200" />
         </dd>
         <dt>
             @Html.DisplayNameFor(model => model.RegisteredAt)
@@ -58,9 +58,16 @@
         <dd>
             @Html.DisplayFor(model => model.RegisteredAt)
         </dd>
+
     </dl>
+    <p>
+        <a asp-area="" asp-controller="BlogPosts" asp-action="Create" class="btn btn-default">Create Blog</a>
+    </p>
+    <p>
+        <a asp-area="" asp-controller="Messages" asp-action="NewMessage" class="btn btn-default">Send Message</a>
+    </p>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-controller="BlogPosts" asp-action="userBlogPost" asp-route-id="@Model.Id" role="button" class="btn btn-success">View Blogs</a> |
+    <a asp-controller="UserProfiles" asp-action="Edit" asp-route-id="@Model.Id" role="button" class="btn btn-success">Edit Profile</a> |
 </div>

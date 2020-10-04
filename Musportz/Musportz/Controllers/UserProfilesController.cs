@@ -127,13 +127,13 @@ namespace Musportz.Controllers
             {
                 _context.Add(userProfile);
                 await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction(nameof(ProfileInfo));
             }
             return View(userProfile);
         }
 
         // GET: UserProfiles/Edit/5
-        [Authorize(Roles = "Administrator")]
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Musportz.Models.BlogPost>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>View Blog Posts</h2>
+
+<p>
+    <a asp-controller="BlogPosts" asp-action="Create" type="button" class="btn btn-outline-primary">Create New Blog</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedAt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserProfile)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreatedAt)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category.CategoryName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserProfile.FirstName)
+                </td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.Id">Read</a> |
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

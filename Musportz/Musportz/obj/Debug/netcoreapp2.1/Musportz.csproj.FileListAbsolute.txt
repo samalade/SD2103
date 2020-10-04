@@ -52,3 +52,11 @@ C:\Users\ACT-Student\source\repos\samalade\SD2103\Musportz\Musportz\obj\Debug\ne
 C:\Users\ACT-Student\source\repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\BlogPosts\Details.cshtml.g.cs
 C:\Users\ACT-Student\source\repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\BlogPosts\Edit.cshtml.g.cs
 C:\Users\ACT-Student\source\repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\BlogPosts\Index.cshtml.g.cs
+C:\Users\ACT-Student\Source\Repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\BlogPosts\userBlogPost.cshtml.g.cs
+C:\Users\ACT-Student\Source\Repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\PostComments\Create.cshtml.g.cs
+C:\Users\ACT-Student\Source\Repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\PostComments\Delete.cshtml.g.cs
+C:\Users\ACT-Student\Source\Repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\PostComments\Details.cshtml.g.cs
+C:\Users\ACT-Student\Source\Repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\PostComments\Edit.cshtml.g.cs
+C:\Users\ACT-Student\Source\Repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\PostComments\Index.cshtml.g.cs
+C:\Users\ACT-Student\Source\Repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\BlogPosts\Browse.cshtml.g.cs
+C:\Users\ACT-Student\Source\Repos\samalade\SD2103\Musportz\Musportz\obj\Debug\netcoreapp2.1\Razor\Views\BlogPosts\BlogView.cshtml.g.cs

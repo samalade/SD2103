@@ -6,9 +6,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Musportz</title>
+    <title>@ViewData["Title"] - Musportz - Online portal for music and sports lovers</title>
 
     <environment include="Development">
+
+        <link href="~/css/site.min.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
     </environment>
@@ -18,9 +21,10 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
-
     <link href="~/css/site.css" rel="stylesheet" />
+
     <link href="~/css/site.min.css" rel="stylesheet" />
+
 </head>
 
 
@@ -36,14 +40,15 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Musportz</a>
+
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand"><img src="~/images/The Box Straps.png" alt="Musportz_logo" height="30" width="50"></a>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="BlogPosts" asp-action="Create">Blog</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index" >Home</a></li>
+                    <li><a asp-area="" asp-controller="BlogPosts" asp-action="Browse" >Blog</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About" >About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact" >Contact</a></li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
@@ -56,9 +61,15 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2020 - Musportz</p>
+              <a asp-area="" asp-controller="Home" asp-action="Index"  class="btn btn-outline-primary">2020 - Musportz</a><br /><br />
+            
+              <a asp-area="" asp-controller="Home" asp-action="About" class="btn btn-outline-primary">About</a><br /><br />
+               
+              <a asp-area="" asp-controller="Home" asp-action="Contact"  class="btn btn-outline-primary">Contact</a>
+            
         </footer>
     </div>
+    
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
